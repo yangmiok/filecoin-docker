@@ -12,6 +12,8 @@ RUN apt-get update -y && \
 ENV CGO_CFLAGS="-D__BLST_PORTABLE__"
 ENV RUSTFLAGS="-C target-cpu=native -g"
 ENV FFI_BUILD_FROM_SOURCE=1
+ENV GODEBUG="madvdontneed=1"
+ENV GODEBUG="gctrace=1"
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
