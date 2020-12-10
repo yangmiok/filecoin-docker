@@ -20,7 +20,7 @@ if [ -f /home/lotus_user/.lotus/token ]; then
     chmod -f 600 /home/lotus_user/.lotus/token
 fi
 
-while getopts sdcinf option
+while getopts sdhcinf option
 do
     case "${option}" in
         s) SYNC=true;;
