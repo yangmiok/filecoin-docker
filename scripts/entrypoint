@@ -25,6 +25,7 @@ do
     case "${option}" in
         s) SYNC=true;;
         d) DAEMON=true;;
+	h) DAEMONHEAP=true;;
         c) CHAINWATCH=true;;
         i) IMPORT=true;;
         n) IMPORT_SNAPSHOT=true;;
@@ -86,6 +87,13 @@ if [ "$SHEDEXPORT" = true ] ; then
     /usr/local/bin/lotus-shed export --skip-old-msgs --recent-stateroots=900 $SHEDEXPORTPATH
     timeout $SHEDEXPORTPERIOD /usr/local/bin/lotus daemon
     done
+fi
+
+if [ "$DAEMONHEAP" = true ] ; then
+    export LOTUS_MAX_HEAP=$LOTUS_MAX_HEAP
+    echo "Starting daemon"
+    # Start the daemon process
+    /usr/local/bin/lotus daemon
 fi
 
 if [ "$DAEMON" = true ] ; then
