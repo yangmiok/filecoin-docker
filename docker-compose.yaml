@@ -1,4 +1,4 @@
-version: "3"
+version: "3.2"
 services:
   lotus:
     build:
@@ -6,7 +6,7 @@ services:
       args:
         - BRANCH=master
         - NETWORK=lotus
-    image: 'glif/lotus:$TAG'
+    image: 'glif/lotus:v1.9.0-dev'
     environment:
      - INFRA_LOTUS_DAEMON=true
      - INFRA_LOTUS_HOME=/home/lotus_user
